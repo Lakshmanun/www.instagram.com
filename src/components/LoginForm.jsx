@@ -166,7 +166,7 @@ export const LoginForm = ({ isMobile = false }) => {
             <span>Create new account</span>
           </button>
           <div className="flex justify-center items-center py-2">
-            <MetaLogo className="h-6 w-auto" />
+            <MetaLogo />
           </div>
         </div>
       </div>

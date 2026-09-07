@@ -11,15 +11,31 @@ export const InstagramGradientIcon = ({ className = "w-14 h-14" }) => (
 );
 
 // Meta Infinity Wordmark Logo with Blue Gradient Infinity Loop (matching provided image)
-export const MetaLogo = ({ className = "h-5 w-auto" }) => (
-  <img
-    src="/meta-logo.svg"
-    alt="Meta"
-    className={`select-none object-contain cursor-pointer ${className}`}
+export const MetaLogo = ({ className = "" }) => (
+  <div
+    className={`inline-flex items-center justify-center gap-1.5 cursor-pointer select-none ${className}`}
     onClick={() => {
       window.location.href = 'https://www.instagram.com/accounts/login';
     }}
-  />
+  >
+    {/* Meta Blue Gradient Ribbon */}
+    <svg className="w-[22px] h-[15px] flex-shrink-0" viewBox="0 0 48 32" fill="none">
+      <defs>
+        <linearGradient id="meta-loop-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0080fb" />
+          <stop offset="50%" stopColor="#0064e0" />
+          <stop offset="100%" stopColor="#004fc7" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M34.8 0C30.8 0 27.6 2.5 25.8 5.4C24 2.5 20.8 0 16.8 0C10.9 0 6.1 5.9 6.1 15.7C6.1 25.5 10.9 32 16.8 32C20.8 32 24 29.3 25.8 26.4C27.6 29.3 30.8 32 34.8 32C40.7 32 45.5 25.5 45.5 15.7C45.5 5.9 40.7 0 34.8 0ZM34.8 27.6C31 27.6 28 23.3 26.8 18.1L26.7 17.5C27.6 12.3 30.6 7.6 34.8 7.6C38.3 7.6 41.1 11.3 41.1 17.6C41.1 23.9 38.3 27.6 34.8 27.6ZM16.8 27.6C13.3 27.6 10.5 23.9 10.5 17.6C10.5 11.3 13.3 7.6 16.8 7.6C20.9 7.6 23.9 12.3 24.8 17.5L24.7 18.1C23.6 23.3 20.6 27.6 16.8 27.6Z"
+        fill="url(#meta-loop-grad)"
+      />
+    </svg>
+    <span className="text-[14px] font-semibold text-[#000000] tracking-tight">
+      Meta
+    </span>
+  </div>
 );
 
 // Blue Facebook Round Icon
