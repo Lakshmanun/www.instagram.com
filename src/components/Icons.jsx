@@ -10,13 +10,13 @@ export const InstagramGradientIcon = ({ className = "w-14 h-14" }) => (
   />
 );
 
-// Meta Infinity Wordmark Logo
-export const MetaLogo = ({ className = "h-3.5 w-auto text-[#8e9aa8]" }) => (
+// Meta Infinity Wordmark Logo with Blue Infinity Sign
+export const MetaLogo = ({ className = "h-4 w-auto text-[#737373]" }) => (
   <div className={`flex items-center justify-center gap-1.5 ${className}`}>
-    <svg className="w-5 h-4 fill-current" viewBox="0 0 24 16">
+    <svg className="w-5 h-4 text-[#0064e0] fill-current" viewBox="0 0 24 16">
       <path d="M17.47 0C15.02 0 13.1 1.25 12 2.68 10.9 1.25 8.98 0 6.53 0 2.92 0 0 2.96 0 7.85c0 4.89 2.92 8.15 6.53 8.15 2.5 0 4.45-1.32 5.47-2.8 1.02 1.48 2.97 2.8 5.47 2.8 3.61 0 6.53-3.26 6.53-8.15C24 2.96 21.08 0 17.47 0zm0 13.8c-2.3 0-4.14-2.15-4.83-4.78l-.06-.27c.56-2.58 2.37-4.94 4.89-4.94 2.14 0 3.79 1.83 3.79 4.99 0 3.16-1.65 5-3.79 5zm-10.94 0c-2.14 0-3.79-1.84-3.79-5 0-3.16 1.65-4.99 3.79-4.99 2.52 0 4.33 2.36 4.89 4.94l-.06.27c-.69 2.63-2.53 4.78-4.83 4.78z" />
     </svg>
-    <span className="font-semibold text-xs tracking-tight">Meta</span>
+    <span className="font-semibold text-xs text-[#000000] tracking-tight">Meta</span>
   </div>
 );
 
@@ -38,7 +38,7 @@ export const CloseFriendsBadge = ({ className = "w-6 h-6" }) => (
 
 // Gradient Heart Sticker
 export const GradientHeartSticker = ({ className = "w-10 h-10" }) => (
-  <div className={`rounded-full p-[2px] bg-gradient-to-tr from-[#ff1361] via-[#fff800] to-[#ff0077] flex items-center justify-center shadow-xl animate-pulseGlow ${className}`}>
+  <div className={`rounded-full p-[2px] bg-gradient-to-tr from-[#ff1361] via-[#fff800] to-[#ff0077] flex items-center justify-center shadow-lg ${className}`}>
     <div className="w-full h-full rounded-full bg-gradient-to-br from-[#ff007f] to-[#ff5e00] flex items-center justify-center">
       <svg className="w-5 h-5 text-white fill-current drop-shadow-sm" viewBox="0 0 24 24">
         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />

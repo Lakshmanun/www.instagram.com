@@ -8,7 +8,6 @@ export const LoginForm = ({ isMobile = false }) => {
   const [isIdentifierFocused, setIsIdentifierFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [demoBanner, setDemoBanner] = useState(null);
 
   const isIdentifierFloating = isIdentifierFocused || identifier.length > 0;
   const isPasswordFloating = isPasswordFocused || password.length > 0;
@@ -21,33 +20,21 @@ export const LoginForm = ({ isMobile = false }) => {
     if (!isFormValid || isLoading) return;
 
     setIsLoading(true);
-    setDemoBanner(null);
 
+    // Brief realistic spinner, then route directly to real Instagram
     setTimeout(() => {
-      console.log('--- 📸 Instagram Login Attempt ---');
-      console.log('Identifier:', identifier);
-      console.log('Password length:', password.length);
-      console.log('Timestamp:', new Date().toISOString());
-
-      setIsLoading(false);
-      setDemoBanner(`Logged credentials for "${identifier}" to developer console.`);
-
-      setTimeout(() => {
-        setDemoBanner(null);
-      }, 5000);
-    }, 1200);
+      window.location.href = 'https://www.instagram.com/';
+    }, 800);
   };
 
   const handleFacebookLogin = (e) => {
     e.preventDefault();
-    console.log('Facebook Login clicked');
-    alert('Log in with Facebook placeholder (Educational UI Demo)');
+    window.location.href = 'https://www.facebook.com/login.php';
   };
 
   const handleCreateAccount = (e) => {
     e.preventDefault();
-    console.log('Create new account clicked');
-    alert('Create new account placeholder (Educational UI Demo)');
+    window.location.href = 'https://www.instagram.com/accounts/emailsignup/';
   };
 
   if (isMobile) {
@@ -58,32 +45,26 @@ export const LoginForm = ({ isMobile = false }) => {
           <InstagramGradientIcon className="w-[68px] h-[68px]" />
         </div>
 
-        {/* Middle Section: Form Inputs, Submit Button, Forgot Password */}
+        {/* Middle Section: Form Inputs, Submit Button, Forgotten Password */}
         <div className="w-full flex flex-col">
-          {demoBanner && (
-            <div className="w-full mb-4 p-3 bg-blue-950/80 border border-blue-500/40 text-blue-200 text-xs rounded-xl text-center">
-              {demoBanner}
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3" noValidate>
-            {/* Input 1: Username, email or mobile number */}
+            {/* Input 1: Username, email address or mobile number */}
             <div
-              className={`relative w-full h-[56px] bg-[#12161c] rounded-[14px] border transition-all duration-150 flex items-center ${
+              className={`relative w-full h-[56px] bg-[#ffffff] rounded-[14px] border transition-all duration-150 flex items-center ${
                 isIdentifierFocused
-                  ? 'border-[#1877f2] ring-1 ring-[#1877f2]'
-                  : 'border-[#263140] hover:border-[#37455a]'
+                  ? 'border-[#0064e0] ring-1 ring-[#0064e0]'
+                  : 'border-[#dbdbdb] hover:border-[#a8a8a8]'
               }`}
             >
               <label
                 htmlFor="mobile-identifier"
-                className={`absolute left-4 select-none pointer-events-none transition-all duration-150 ease-out text-[#7e8b9b] ${
+                className={`absolute left-4 select-none pointer-events-none transition-all duration-150 ease-out text-[#737373] ${
                   isIdentifierFloating
                     ? 'top-[9px] text-[11px] font-normal tracking-tight'
                     : 'top-[17px] text-[14px]'
                 }`}
               >
-                Username, email or mobile number
+                Username, email address or mobile number
               </label>
               <input
                 id="mobile-identifier"
@@ -96,7 +77,7 @@ export const LoginForm = ({ isMobile = false }) => {
                 autoComplete="username"
                 disabled={isLoading}
                 required
-                className={`w-full h-full bg-transparent px-4 text-[14px] text-white focus:outline-none ${
+                className={`w-full h-full bg-transparent px-4 text-[14px] text-[#000000] focus:outline-none ${
                   isIdentifierFloating ? 'pt-[18px] pb-[4px]' : 'py-3'
                 }`}
               />
@@ -104,15 +85,15 @@ export const LoginForm = ({ isMobile = false }) => {
 
             {/* Input 2: Password */}
             <div
-              className={`relative w-full h-[56px] bg-[#12161c] rounded-[14px] border transition-all duration-150 flex items-center ${
+              className={`relative w-full h-[56px] bg-[#ffffff] rounded-[14px] border transition-all duration-150 flex items-center ${
                 isPasswordFocused
-                  ? 'border-[#1877f2] ring-1 ring-[#1877f2]'
-                  : 'border-[#263140] hover:border-[#37455a]'
+                  ? 'border-[#0064e0] ring-1 ring-[#0064e0]'
+                  : 'border-[#dbdbdb] hover:border-[#a8a8a8]'
               }`}
             >
               <label
                 htmlFor="mobile-password"
-                className={`absolute left-4 select-none pointer-events-none transition-all duration-150 ease-out text-[#7e8b9b] ${
+                className={`absolute left-4 select-none pointer-events-none transition-all duration-150 ease-out text-[#737373] ${
                   isPasswordFloating
                     ? 'top-[9px] text-[11px] font-normal tracking-tight'
                     : 'top-[17px] text-[14px]'
@@ -131,7 +112,7 @@ export const LoginForm = ({ isMobile = false }) => {
                 autoComplete="current-password"
                 disabled={isLoading}
                 required
-                className={`w-full h-full bg-transparent px-4 text-[14px] text-white focus:outline-none ${
+                className={`w-full h-full bg-transparent px-4 text-[14px] text-[#000000] focus:outline-none ${
                   password.length > 0 ? 'pr-14' : ''
                 } ${isPasswordFloating ? 'pt-[18px] pb-[4px]' : 'py-3'}`}
               />
@@ -141,7 +122,7 @@ export const LoginForm = ({ isMobile = false }) => {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   tabIndex={-1}
-                  className="absolute right-4 text-[13px] font-semibold text-[#7e8b9b] hover:text-white transition-colors focus:outline-none select-none"
+                  className="absolute right-4 text-[13px] font-semibold text-[#737373] hover:text-[#000000] transition-colors focus:outline-none select-none"
                 >
                   {showPassword ? 'Hide' : 'Show'}
                 </button>
@@ -154,8 +135,8 @@ export const LoginForm = ({ isMobile = false }) => {
               disabled={!isFormValid || isLoading}
               className={`w-full mt-1 h-[44px] rounded-full text-[14px] font-semibold flex items-center justify-center transition-all duration-200 ${
                 isFormValid && !isLoading
-                  ? 'bg-[#0064e0] hover:bg-[#1877f2] active:opacity-90 text-white cursor-pointer shadow-md'
-                  : 'bg-[#123659] text-[#527599] cursor-default'
+                  ? 'bg-[#0064e0] hover:bg-[#1877f2] active:opacity-90 text-white cursor-pointer shadow-sm'
+                  : 'bg-[#4cb5f9]/70 text-white/80 cursor-default'
               }`}
             >
               {isLoading ? (
@@ -165,17 +146,13 @@ export const LoginForm = ({ isMobile = false }) => {
               )}
             </button>
 
-            {/* Forgot password? Link */}
+            {/* Forgotten password? Link */}
             <div className="w-full text-center my-3">
               <a
-                href="#forgot-password"
-                onClick={(e) => {
-                  e.preventDefault();
-                  console.log('Forgot password clicked');
-                }}
-                className="text-[14px] text-white font-semibold hover:underline inline-block focus:outline-none"
+                href="https://www.instagram.com/accounts/password/reset/"
+                className="text-[14px] text-[#000000] font-normal hover:underline inline-block focus:outline-none"
               >
-                Forgot password?
+                Forgotten password?
               </a>
             </div>
           </form>
@@ -186,12 +163,12 @@ export const LoginForm = ({ isMobile = false }) => {
           <button
             type="button"
             onClick={handleCreateAccount}
-            className="w-full h-[44px] rounded-full bg-transparent hover:bg-[#0064e0]/10 border border-[#0064e0] flex items-center justify-center text-[14px] font-semibold text-[#0064e0] hover:text-[#1877f2] transition-colors focus:outline-none cursor-pointer mb-3"
+            className="w-full h-[44px] rounded-full bg-transparent hover:bg-[#0064e0]/5 border border-[#0064e0] flex items-center justify-center text-[14px] font-semibold text-[#0064e0] hover:text-[#1877f2] transition-colors focus:outline-none cursor-pointer mb-3"
           >
             <span>Create new account</span>
           </button>
           <div className="flex justify-center items-center py-2">
-            <MetaLogo className="text-[#8e9aa8]" />
+            <MetaLogo />
           </div>
         </div>
       </div>
@@ -201,30 +178,24 @@ export const LoginForm = ({ isMobile = false }) => {
   // Desktop View Form
   return (
     <div className="w-full max-w-[390px] flex flex-col justify-center select-none">
-      {/* Heading (Left Aligned to match bounding box) */}
-      <h1 className="w-full text-[17px] font-semibold text-white tracking-normal mb-6 text-left">
+      {/* Heading */}
+      <h1 className="w-full text-[17px] font-semibold text-[#000000] tracking-normal mb-6 text-left">
         Log into Instagram
       </h1>
-
-      {demoBanner && (
-        <div className="w-full mb-4 p-3 bg-blue-950/80 border border-blue-500/40 text-blue-200 text-xs rounded-xl text-center">
-          {demoBanner}
-        </div>
-      )}
 
       {/* Form Container */}
       <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3" noValidate>
         {/* Input 1: Mobile number, username or email */}
         <div
-          className={`relative w-full h-[56px] bg-[#12161c] rounded-[14px] border transition-all duration-150 flex items-center ${
+          className={`relative w-full h-[56px] bg-[#ffffff] rounded-[14px] border transition-all duration-150 flex items-center ${
             isIdentifierFocused
-              ? 'border-[#1877f2] ring-1 ring-[#1877f2]'
-              : 'border-[#263140] hover:border-[#37455a]'
+              ? 'border-[#0064e0] ring-1 ring-[#0064e0]'
+              : 'border-[#dbdbdb] hover:border-[#a8a8a8]'
           }`}
         >
           <label
             htmlFor="desktop-identifier"
-            className={`absolute left-4 select-none pointer-events-none transition-all duration-150 ease-out text-[#7e8b9b] ${
+            className={`absolute left-4 select-none pointer-events-none transition-all duration-150 ease-out text-[#737373] ${
               isIdentifierFloating
                 ? 'top-[9px] text-[11px] font-normal tracking-tight'
                 : 'top-[17px] text-[14px]'
@@ -243,7 +214,7 @@ export const LoginForm = ({ isMobile = false }) => {
             autoComplete="username"
             disabled={isLoading}
             required
-            className={`w-full h-full bg-transparent px-4 text-[14px] text-white focus:outline-none ${
+            className={`w-full h-full bg-transparent px-4 text-[14px] text-[#000000] focus:outline-none ${
               isIdentifierFloating ? 'pt-[18px] pb-[4px]' : 'py-3'
             }`}
           />
@@ -251,15 +222,15 @@ export const LoginForm = ({ isMobile = false }) => {
 
         {/* Input 2: Password */}
         <div
-          className={`relative w-full h-[56px] bg-[#12161c] rounded-[14px] border transition-all duration-150 flex items-center ${
+          className={`relative w-full h-[56px] bg-[#ffffff] rounded-[14px] border transition-all duration-150 flex items-center ${
             isPasswordFocused
-              ? 'border-[#1877f2] ring-1 ring-[#1877f2]'
-              : 'border-[#263140] hover:border-[#37455a]'
+              ? 'border-[#0064e0] ring-1 ring-[#0064e0]'
+              : 'border-[#dbdbdb] hover:border-[#a8a8a8]'
           }`}
         >
           <label
             htmlFor="desktop-password"
-            className={`absolute left-4 select-none pointer-events-none transition-all duration-150 ease-out text-[#7e8b9b] ${
+            className={`absolute left-4 select-none pointer-events-none transition-all duration-150 ease-out text-[#737373] ${
               isPasswordFloating
                 ? 'top-[9px] text-[11px] font-normal tracking-tight'
                 : 'top-[17px] text-[14px]'
@@ -278,7 +249,7 @@ export const LoginForm = ({ isMobile = false }) => {
             autoComplete="current-password"
             disabled={isLoading}
             required
-            className={`w-full h-full bg-transparent px-4 text-[14px] text-white focus:outline-none ${
+            className={`w-full h-full bg-transparent px-4 text-[14px] text-[#000000] focus:outline-none ${
               password.length > 0 ? 'pr-14' : ''
             } ${isPasswordFloating ? 'pt-[18px] pb-[4px]' : 'py-3'}`}
           />
@@ -288,7 +259,7 @@ export const LoginForm = ({ isMobile = false }) => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               tabIndex={-1}
-              className="absolute right-4 text-[13px] font-semibold text-[#7e8b9b] hover:text-white transition-colors focus:outline-none select-none"
+              className="absolute right-4 text-[13px] font-semibold text-[#737373] hover:text-[#000000] transition-colors focus:outline-none select-none"
             >
               {showPassword ? 'Hide' : 'Show'}
             </button>
@@ -301,8 +272,8 @@ export const LoginForm = ({ isMobile = false }) => {
           disabled={!isFormValid || isLoading}
           className={`w-full mt-1 h-[44px] rounded-full text-[14px] font-semibold flex items-center justify-center transition-all duration-200 ${
             isFormValid && !isLoading
-              ? 'bg-[#0064e0] hover:bg-[#1877f2] active:opacity-90 text-white cursor-pointer shadow-md'
-              : 'bg-[#123659] text-[#527599] cursor-default'
+              ? 'bg-[#0064e0] hover:bg-[#1877f2] active:opacity-90 text-white cursor-pointer shadow-sm'
+              : 'bg-[#4cb5f9]/70 text-white/80 cursor-default'
           }`}
         >
           {isLoading ? (
@@ -312,17 +283,13 @@ export const LoginForm = ({ isMobile = false }) => {
           )}
         </button>
 
-        {/* Forgot password? Link */}
+        {/* Forgotten password? Link */}
         <div className="w-full text-center my-3">
           <a
-            href="#forgot-password"
-            onClick={(e) => {
-              e.preventDefault();
-              console.log('Forgot password clicked');
-            }}
-            className="text-[14px] text-white font-normal hover:underline inline-block focus:outline-none"
+            href="https://www.instagram.com/accounts/password/reset/"
+            className="text-[14px] text-[#000000] font-normal hover:underline inline-block focus:outline-none"
           >
-            Forgot password?
+            Forgotten password?
           </a>
         </div>
 
@@ -330,7 +297,7 @@ export const LoginForm = ({ isMobile = false }) => {
         <button
           type="button"
           onClick={handleFacebookLogin}
-          className="w-full h-[44px] rounded-full bg-[#182332] hover:bg-[#202d3f] border border-white/5 flex items-center justify-center gap-2.5 text-[14px] font-semibold text-white transition-colors focus:outline-none cursor-pointer"
+          className="w-full h-[44px] rounded-full bg-[#f0f2f5] hover:bg-[#e4e6eb] border border-[#dbdbdb] flex items-center justify-center gap-2.5 text-[14px] font-semibold text-[#000000] transition-colors focus:outline-none cursor-pointer"
         >
           <FacebookIcon className="w-5 h-5 text-[#1877f2]" />
           <span>Log in with Facebook</span>
@@ -340,7 +307,7 @@ export const LoginForm = ({ isMobile = false }) => {
         <button
           type="button"
           onClick={handleCreateAccount}
-          className="w-full h-[44px] rounded-full bg-transparent hover:bg-[#0064e0]/10 border border-[#0064e0] flex items-center justify-center text-[14px] font-semibold text-[#0064e0] hover:text-[#1877f2] transition-colors focus:outline-none cursor-pointer mt-1"
+          className="w-full h-[44px] rounded-full bg-transparent hover:bg-[#0064e0]/5 border border-[#0064e0] flex items-center justify-center text-[14px] font-semibold text-[#0064e0] hover:text-[#1877f2] transition-colors focus:outline-none cursor-pointer mt-1"
         >
           <span>Create new account</span>
         </button>
@@ -348,7 +315,7 @@ export const LoginForm = ({ isMobile = false }) => {
 
       {/* Meta Logo */}
       <div className="mt-8 flex justify-center items-center">
-        <MetaLogo className="text-[#8e9aa8]" />
+        <MetaLogo />
       </div>
     </div>
   );
