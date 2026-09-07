@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <!-- Instagram Smooth 4-Stop Gradient -->
+    <linearGradient id="ig-grad-logo" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#833ab4" />
+      <stop offset="25%" stop-color="#c13584" />
+      <stop offset="50%" stop-color="#e1306c" />
+      <stop offset="75%" stop-color="#fd1d1d" />
+      <stop offset="100%" stop-color="#fcb045" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Camera Squircle Outline -->
+  <rect
+    x="8"
+    y="8"
+    width="84"
+    height="84"
+    rx="24"
+    ry="24"
+    fill="#0c1014"
+    stroke="url(#ig-grad-logo)"
+    stroke-width="8.5"
+  />
+
+  <!-- Center Camera Lens Ring -->
+  <circle
+    cx="50"
+    cy="50"
+    r="20.5"
+    fill="none"
+    stroke="url(#ig-grad-logo)"
+    stroke-width="8.5"
+  />
+
+  <!-- Top Right Flash Dot -->
+  <circle
+    cx="70.5"
+    cy="29.5"
+    r="5.5"
+    fill="url(#ig-grad-logo)"
+  />
+</svg>
