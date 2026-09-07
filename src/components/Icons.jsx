@@ -17,7 +17,7 @@ export const MetaLogo = ({ className = "" }) => (
     src="/meta-logo.svg"
     alt="Meta"
     className={`select-none object-contain cursor-pointer ${className}`}
-    style={{ height: '22px', width: 'auto' }}
+    style={{ height: '36px', width: 'auto' }}
     onClick={() => {
       window.location.href = 'https://www.instagram.com/accounts/login';
     }}

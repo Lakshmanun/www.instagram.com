@@ -1,19 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
   <defs>
-    <!-- Meta Blue Gradient Loop -->
-    <linearGradient id="meta-gradient-loop" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0080fb" />
-      <stop offset="50%" stop-color="#0064e0" />
-      <stop offset="100%" stop-color="#004fc7" />
+    <linearGradient id="meta-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#1a8ef7" />
+      <stop offset="100%" stop-color="#0064e0" />
     </linearGradient>
   </defs>
 
-  <!-- Infinity Ribbon -->
-  <path
-    d="M42.4 12C37.5 12 33.7 14.5 31.5 17.4C29.3 14.5 25.5 12 20.6 12C13.4 12 7.6 17.9 7.6 27.7C7.6 37.5 13.4 44 20.6 44C25.6 44 29.5 41.3 31.5 38.4C33.5 41.3 37.4 44 42.4 44C49.6 44 55.4 37.5 55.4 27.7C55.4 17.9 49.6 12 42.4 12ZM42.4 39.6C37.8 39.6 34.2 35.3 32.8 30.1L32.7 29.5C33.8 24.3 37.4 19.6 42.4 19.6C46.7 19.6 50.1 23.3 50.1 29.6C50.1 35.9 46.7 39.6 42.4 39.6ZM20.6 39.6C16.3 39.6 12.9 35.9 12.9 29.6C12.9 23.3 16.3 19.6 20.6 19.6C25.6 19.6 29.2 24.3 30.3 29.5L30.2 30.1C28.8 35.3 25.2 39.6 20.6 39.6Z"
-    fill="url(#meta-gradient-loop)"
-  />
+  <!--
+    Meta official infinity glyph — redrawn to match the provided logo image.
+    Viewbox is 200×60; icon occupies left ~58px, text starts at x=68.
+  -->
+  <g transform="translate(4, 6) scale(1.0)">
+    <!-- Outer ring of left lobe -->
+    <path
+      d="
+        M19.5 48
+        C9.6 48 2 39.6 2 28
+        C2 16.4 9.6 8 19.5 8
+        C25.8 8 30.9 11.2 34 16
+        C37.1 11.2 42.2 8 48.5 8
+        C58.4 8 66 16.4 66 28
+        C66 39.6 58.4 48 48.5 48
+        C42.2 48 37.1 44.8 34 40
+        C30.9 44.8 25.8 48 19.5 48Z
 
-  <!-- Wordmark 'Meta' -->
-  <text x="64" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#000000" letter-spacing="-0.5">Meta</text>
+        M19.5 41
+        C24.6 41 28.6 36.5 30.4 30.4
+        L30.5 29.5
+        C28.7 23.4 24.7 19 19.5 19
+        C14.0 19 9.5 23.2 9.5 28
+        C9.5 32.8 14.0 41 19.5 41Z
+
+        M48.5 41
+        C54.0 41 58.5 32.8 58.5 28
+        C58.5 23.2 54.0 19 48.5 19
+        C43.3 19 39.3 23.4 37.5 29.5
+        L37.6 30.4
+        C39.4 36.5 43.4 41 48.5 41Z
+      "
+      fill="url(#meta-blue)"
+      fill-rule="evenodd"
+    />
+  </g>
+
+  <!-- "Meta" wordmark — regular weight matching official branding -->
+  <text
+    x="82"
+    y="40"
+    font-family="-apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="28"
+    font-weight="400"
+    letter-spacing="-0.5"
+    fill="#1c1e21"
+  >Meta</text>
 </svg>
